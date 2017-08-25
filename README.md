@@ -1,24 +1,95 @@
-# README
+# Iron Yard Ecommerce API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ready to use this API for your React ecommerce app?
 
-Things you may want to cover:
 
-* Ruby version
+## Endpoints
 
-* System dependencies
+#### GET https://iy-ecommerce-api.herokuapp.com/api/v1/products
 
-* Configuration
+*Example Request*:
+```js
+fetch('https://iy-ecommerce-api.herokuapp.com/api/v1/products')
+  .catch((err) => {
+    console.log('Error GET products', err);
+  })
+  .then((res) => res.json())
+  .then((products) => {
+    console.log('fetched products successfully!', products);
+  });
+```
 
-* Database creation
+#### GET https://iy-ecommerce-api.herokuapp.com/api/v1/products/:id
 
-* Database initialization
+*Example Request*:
+```js
+fetch('https://iy-ecommerce-api.herokuapp.com/api/v1/products/10')
+  .catch((err) => {
+    console.log('Error GET product', err);
+  })
+  .then((res) => res.json())
+  .then((product) => {
+    console.log('fetched product successfully!', product);
+  });
+```
 
-* How to run the test suite
+#### POST https://iy-ecommerce-api.herokuapp.com/api/v1/products
 
-* Services (job queues, cache servers, search engines, etc.)
+*Example Request*:
+```js
+const options = {
+  method: 'POST',
+  headers: {
+    'content-type': 'application/json',
+  },
+  body: {
+    title: 'Remote',
+    description: 'A lightweight TV remote.',
+    price: '3.23',
+  },
+};
 
-* Deployment instructions
+fetch('https://iy-ecommerce-api.herokuapp.com/api/v1/products', options)
+  .catch((err) => {
+    console.log('Error POST', err);
+  })
+  .then((res) => res.json())
+  .then((newProduct) => {
+    console.log('created product successfully!', newProduct);
+  });
+```
 
-* ...
+#### PUT https://iy-ecommerce-api.herokuapp.com/api/v1/products/:id
+
+*Example Request*:
+```js
+const options = {
+  method: 'PUT',
+  headers: {
+    'content-type': 'application/json',
+  },
+  body: {
+    title: 'Remote',
+    description: 'A lightweight TV remote.',
+    price: '3.23',
+  },
+};
+
+fetch('https://iy-ecommerce-api.herokuapp.com/api/v1/products/2', options)
+  .catch((err) => {
+    console.log('Error PUT', err);
+  })
+  .then((res) => res.json())
+  .then((newProduct) => {
+    console.log('updated product successfully!', newProduct);
+  });
+```
+
+#### DELETE https://iy-ecommerce-api.herokuapp.com/api/v1/products/:id
+
+*This is DISABLED for the moment.*
+
+
+## Postman Collection
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/0674961220fc1d3ae988)
