@@ -6,9 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-p title = Faker::Commerce.product_name
-Product.create!(
-  title: title,
-  description: Faker::WorldOfWarcraft.quote,
-  price: Faker::Commerce.price,
-)
+500.times do |num|
+  title = Faker::Commerce.product_name
+  Product.create!(
+    title: title,
+    description: Faker::WorldOfWarcraft.quote,
+    price: Faker::Commerce.price,
+  )
+end
