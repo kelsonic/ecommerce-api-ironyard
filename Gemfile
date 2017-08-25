@@ -7,10 +7,10 @@ end
 
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.2'
+gem 'faker'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'faker'
   gem 'sqlite3'
 end
 
